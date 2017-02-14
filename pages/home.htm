@@ -1,0 +1,70 @@
+title = "Welcome!"
+url = "/"
+layout = "default"
+
+[campaignSignup]
+list = "followers"
+confirm = 0
+templatePage = "campaign/default-template"
+==
+<h2 class="ui header">
+    An exciting new platform
+    <div class="sub header">
+        Coming soon
+    </div>
+</h2>
+
+<p>
+    Want to find out when {{ this.site_name }} goes live?
+    Enter your details in the form below to register your interest.
+    We'll let you know on launch day.
+</p>
+
+<div id="container" class="ui segment">
+    <form
+        data-request="campaignSignup::onSignup"
+        data-request-update="'campaignSignup::result': '#container'"
+        class="ui form">
+
+        <div class="two fields">
+            <div class="field">
+                <label>Name</label>
+                <input
+                    name="first_name"
+                    type="text"
+                    placeholder="Enter your first name" />
+            </div>
+            <div class="field">
+                <label>Surname</label>
+                <input
+                    name="last_name"
+                    type="text"
+                    placeholder="Enter your last name (optional)" />
+            </div>
+        </div>
+        <div class="field">
+            <label>Email address</label>
+            <input
+                name="email"
+                type="email"
+                placeholder="Enter your email address" />
+        </div>
+
+        <div class="ui grid">
+            <div class="six wide column">
+                <button
+                    type="submit"
+                    class="ui fluid button"
+                    data-attach-loading>
+                    Register interest
+                </button>
+            </div>
+            <div class="ten wide column">
+                <p class="text-muted m-t-sm">
+                    We promise not to share or sell your details with any third party.
+                </p>
+            </div>
+        </div>
+
+    </form>
+</div>

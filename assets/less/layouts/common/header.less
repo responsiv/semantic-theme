@@ -1,0 +1,65 @@
+//
+// Header
+// --------------------------------------------------
+
+@header-height: 96px;
+
+header#layout-header {
+    min-height: @header-height;
+    background-color: @header-bg;
+
+    .header-logo {
+        margin: 1rem 0;
+        img {
+            vertical-align: middle;
+            height: 68px;
+        }
+
+        small {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: @largestMobileScreen) {
+        .header-logo {
+            text-align: center;
+            margin-bottom: 0;
+        }
+    }
+
+    .header-nav {
+        .header-nav-dropdown {
+            margin-top: 1.3rem;
+            border: none !important;
+            box-shadow: none !important;
+            background: rgba(255,255,255,.08) !important;
+            &:active {
+                background: rgba(255,255,255,.12) !important;
+            }
+            .header-nav-button {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                max-width: 200px;
+            }
+            .avatar.image {
+                max-height: 2.4em;
+                height: 2.4em;
+                width: 2.4em;
+            }
+        }
+
+        .header-guest-buttons {
+            margin-top: 2.1rem;
+        }
+
+    }
+
+}
+
+#layout-nav {
+    .secondary-nav {
+        background: rgba(0,0,0,.1);
+        padding-left: .75rem;
+    }
+}

@@ -1,0 +1,31 @@
+<i class="close icon" data-dismiss="modal"></i>
+<div class="header">
+    Deactivate your account?
+</div>
+<div class="content">
+
+    {{ form_ajax('onDeactivate', {
+        id: 'deactivateForm',
+        class: 'ui content form'
+    }) }}
+        <p class="m-t-0">
+            Your account will be disabled and your details removed from the site.
+            You can reactivate your account any time by signing back in.
+        </p>
+        <div class="field">
+            <label for="accountDeletePassword">To continue, please enter your password:</label>
+            <input name="password" type="password" id="accountDeletePassword" />
+        </div>
+    {{ form_close() }}
+
+</div>
+<div class="actions">
+    <a href="javascript:;" data-dismiss="modal">
+        I changed my mind
+    </a>
+    <button
+        class="ui large negative button"
+        data-submit-form="#deactivateForm">
+        Confirm Deactivate Account
+    </button>
+</div>

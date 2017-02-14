@@ -1,0 +1,71 @@
+title = "Register"
+url = "/register/:code?"
+layout = "basic"
+description = "Account registration page"
+meta_title = "Register new account"
+
+[account]
+redirect = "account"
+paramCode = "code"
+
+[session]
+security = "guest"
+redirect = "account"
+==
+<div class="ui center aligned grid basic-layout-grid">
+    <div class="column">
+
+        <h2 class="ui header">
+            Join {{ this.theme.site_name }}
+        </h2>
+
+        <div class="ui left aligned large form raised segment">
+
+            <form
+                data-request="onRegister"
+                data-request-loading="#registerLoading">
+                <div class="field">
+                    <label for="registerName">Enter your full name</label>
+                    <div class="ui left icon input">
+                        <input name="name" type="text" id="registerEmail" placeholder="Full Name">
+                        <i class="user icon"></i>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="registerEmail">Enter your email</label>
+                    <div class="ui left icon input">
+                        <input name="email" type="email" id="registerEmail" placeholder="Email">
+                        <i class="mail icon"></i>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="registerPassword">Choose a password</label>
+                    <div class="ui left icon input">
+                        <input name="password" type="password" id="registerPassword" placeholder="Password">
+                        <i class="lock icon"></i>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <button type="submit" class="ui fluid large positive submit button">Create account</button>
+                </div>
+
+            </form>
+
+            <p>By pressing create account you agree to the <a href="{{ 'terms'|page }}">terms of service</a>.</p>
+
+            <div class="ui active inverted dimmer" id="registerLoading" style="display: none">
+                <div class="ui text loader">Loading</div>
+            </div>
+
+        </div>
+
+        <div class="ui message">
+            Already have an account?
+            <a href="{{ 'account/signin'|page }}">Sign in</a>
+        </div>
+
+    </div>
+</div>

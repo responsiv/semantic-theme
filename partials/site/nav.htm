@@ -1,0 +1,70 @@
+{% macro render(type) %}
+
+    {% set links = [
+        { title: 'Home', url: 'home'|page, isActive: true }
+    ] %}
+
+    {% import _self as nav %}
+
+    {% if type == 'mainmenu' %}
+        {{ nav.render_mainmenu(links) }}
+    {% elseif type == 'submenu' %}
+        {{ nav.render_submenu(links) }}
+    {% elseif type == 'mobile' %}
+        {{ nav.render_mobile(links) }}
+    {% endif %}
+
+{% endmacro %}
+
+{% macro render_mainmenu(items) %}
+    {% import _self as nav %}
+
+    {% for item in items %}
+        {{ nav.render_menu_link(item) }}
+    {% endfor %}
+{% endmacro %}
+
+{% macro render_submenu(items) %}
+    {% import _self as nav %}
+
+    {% for item in items if item.isActive or item.isChildActive %}
+        {% if item.items %}
+            <div class="secondary-nav">
+                <div class="ui inverted secondary menu">
+                    {{ nav.render_menu(item.items) }}
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro render_mobile(items) %}
+    {% import _self as nav %}
+
+    {% for item in items %}
+        {% if item.items %}
+            {{ nav.render_menu_dropdown(item) }}
+        {% else %}
+            {{ nav.render_menu_link(item) }}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro render_menu_link(item) %}
+    <a class="{{ item.isActive ? 'active' }} item {{ item.viewBag.cssClass }}" href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
+        {{ item.title }}
+    </a>
+{% endmacro %}
+
+{% macro render_menu_dropdown(item) %}
+    {% import _self as nav %}
+
+    <div class="ui item">
+        <a href="#">
+            {{ item.title }}
+        </a>
+        <div class="menu">
+            {{ nav.render_menu(item.items, user) }}
+        </div>
+    </div>
+{% endmacro %}

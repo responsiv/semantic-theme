@@ -1,0 +1,53 @@
+//
+// Content
+// --------------------------------------------------
+
+nav#layout-nav {
+    background: @title-bg;
+
+    .container {
+        padding: 0;
+    }
+
+    .ui.menu {
+        margin: 0;
+        background: transparent;
+    }
+}
+
+@media (max-width: @largestMobileScreen) {
+    #layout-nav {
+        display: none;
+    }
+}
+
+#layout-content {
+    .layout-segment {
+        padding: 1.5em;
+    }
+
+    // Visible tablet
+    @media (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+        .layout-segment {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+
+    // Visible mobile
+    @media (max-width: @largestMobileScreen) {
+        .layout-segment {
+            padding-left: .5rem;
+            padding-right: .5rem;
+        }
+    }
+}
+
+.basic-layout-grid {
+    > .column {
+        max-width: 450px;
+        > h2.header:first-child {
+            padding-top: 2em;
+        }
+    }
+}

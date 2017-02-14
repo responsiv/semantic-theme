@@ -1,0 +1,30 @@
+{% import 'site/nav' as nav %}
+
+{# Render navigation #}
+<div class="ui right inverted grey vertical large menu sidebar" id="layout-mobile-nav">
+
+    {% if session.user %}
+
+        <a href="{{ 'account'|page }}" class="item">
+            <img class="ui avatar image" src="{{ user.getAvatarThumb(64, { mode: 'crop' }) }}" alt="" />
+            {{ user.name }}
+        </a>
+
+        {{ nav.render('mobile') }}
+
+        <a class="item" data-request="onLogout">
+            <i class="power icon"></i>
+            Log out
+        </a>
+
+    {% else %}
+
+        <div class="item header-guest-buttons">
+            <a href="{{ 'account/signin'|page }}" class="ui large compact orange button">Sign in</a>
+            <a href="{{ 'account/register'|page }}" class="ui large compact button">Register</a>
+        </div>
+
+        {{ nav.render('mobile') }}
+
+    {% endif %}
+</div>

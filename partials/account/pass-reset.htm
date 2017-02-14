@@ -1,0 +1,25 @@
+{% set code = resetPassword.code %}
+<p>
+    Please check your email for the activation code.
+</p>
+
+<form
+    data-request="onResetPassword"
+    data-request-loading="#resetLoading"
+    data-request-update="'account/pass-complete': '#partialUserResetForm'">
+    <div class="field">
+        <label for="resetCode">Activation code</label>
+        <div class="ui input">
+            <input name="code" type="text" class="form-control" id="resetCode" placeholder="Enter the activation code" value="{{ code }}">
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="resetPassword">New password</label>
+        <div class="ui input">
+            <input name="password" type="password" class="form-control" id="resetPassword" placeholder="Enter a new password">
+        </div>
+    </div>
+
+    <button type="submit" class="ui large fluid positive submit button">Reset password</button>
+</form>

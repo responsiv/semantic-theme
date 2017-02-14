@@ -1,0 +1,7 @@
+/*******************************
+     User Global Variables
+*******************************/
+
+// Override default|flat.globals.site.variables
+@imagePath : '../../vendor/semantic-ui/themes/default/assets/images';
+@fontPath  : '../../vendor/semantic-ui/themes/default/assets/fonts';

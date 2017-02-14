@@ -1,0 +1,54 @@
+description = "Default layout"
+
+[session]
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body>
+
+        <!-- Mobile nav -->
+        {% partial 'site/nav-mobile' %}
+
+        <!-- Flash messages -->
+        {% partial 'site/flash-messages' %}
+
+        <div class="pusher">
+
+            <!-- Header -->
+            <header id="layout-header">
+                {% partial 'site/header' %}
+            </header>
+
+            <!-- Nav -->
+            <nav id="layout-nav" role="navigation">
+                <div class="ui container">
+                    {% partial 'site/nav-desktop' %}
+                </div>
+            </nav>
+
+            <!-- Content -->
+            <section id="layout-content">
+                <div class="ui container">
+                    <div class="ui segment layout-segment">
+                        {% page %}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer id="layout-footer">
+                <div class="ui container">
+                    {% partial 'site/footer' %}
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Scripts -->
+        {% partial 'site/scripts' %}
+
+    </body>
+</html>

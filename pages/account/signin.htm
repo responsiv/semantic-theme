@@ -1,0 +1,58 @@
+title = "Sign in"
+url = "/signin"
+layout = "basic"
+description = "Sign in page"
+
+[account]
+redirect = "dashboard"
+paramCode = "code"
+
+[session]
+redirect = "dashboard"
+security = "guest"
+==
+<div class="ui center aligned grid basic-layout-grid">
+    <div class="column">
+
+        <h2 class="ui header">
+            Sign in to {{ this.theme.site_name }}
+        </h2>
+
+        <div class="ui large form raised segment">
+            <form
+                data-request="onSignin"
+                data-request-loading="#signinLoading">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <input name="email" type="email" id="signinEmail" placeholder="E-mail address">
+                        <i class="mail icon"></i>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="ui left icon input">
+                        <input name="password" type="password" id="signinPassword" placeholder="Password">
+                        <i class="lock icon"></i>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <button type="submit" class="ui fluid large blue submit button">Sign in</button>
+                </div>
+                <small class="small text-center">
+                    <a href="{{ 'account/reset-password'|page }}" tabindex="-1">Forgot your password?</a>
+                </small>
+            </form>
+
+            <div class="ui active inverted dimmer" id="signinLoading" style="display: none">
+                <div class="ui text loader">Loading</div>
+            </div>
+        </div>
+
+        <div class="ui message">
+            New user?
+            <a href="{{ 'account/register'|page }}">Create an account</a>
+        </div>
+
+    </div>
+</div>

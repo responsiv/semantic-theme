@@ -1,0 +1,8 @@
+{% import 'site/nav' as nav %}
+
+{# Render navigation #}
+<div class="ui large inverted stackable menu">
+    {{ nav.render('mainmenu') }}
+</div>
+
+{{ nav.render('submenu') }}

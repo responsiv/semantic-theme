@@ -1,0 +1,7 @@
+name: Demo (Semantic)
+description: 'A demo theme that uses Semantic UI'
+author: Responsiv Internet
+homepage: 'http://responsiv.com'
+code: ''
+
+form: theme_fields.yaml

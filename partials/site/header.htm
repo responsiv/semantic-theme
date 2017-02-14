@@ -1,0 +1,45 @@
+<div class="ui container">
+    <div class="ui stackable grid">
+        <div class="ten wide column">
+
+            <div class="header-logo">
+                <a href="{{ 'home'|page }}">
+                    <img src="{{ 'assets/images/october.png'|theme }}" alt="{{ this.theme.site_name }}" />
+                </a>
+                <small class="hidden-mobile hidden-tablet">{{ this.theme.site_motto }}</small>
+            </div>
+
+        </div>
+        <div class="six wide column">
+
+            <div class="header-mobile-nav visible-mobile text-center m-b">
+                <a href="javascript:;" class="ui huge compact basic button" onclick="togglePrimarySidebar()">
+                    <i class="content icon"></i>
+                    Menu
+                </a>
+            </div>
+
+            <div class="header-nav text-right hidden-mobile">
+                {% if user %}
+                    <div class="ui pointing large compact basic button dropdown header-nav-dropdown" data-control="dropdown">
+                        <div class="header-nav-button">
+                            <img class="ui avatar image" src="{{ user.getAvatarThumb(64, { mode: 'crop' }) }}" alt="" />
+                            {{ user.name }}
+                        </div>
+                        <div class="menu">
+                            <a class="item" href="{{ 'dashboard'|page }}"><i class="dashboard icon"></i> Dashboard</a>
+                            <a class="item" href="{{ 'account'|page(false) }}"><i class="settings icon"></i> My Account</a>
+                            <a class="item" data-request="onLogout"><i class="power icon"></i> Log out</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="item header-guest-buttons">
+                        <a href="{{ 'account/signin'|page }}" class="ui large compact orange button">Sign in</a>
+                        <a href="{{ 'account/register'|page }}" class="ui large compact button">Register</a>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>

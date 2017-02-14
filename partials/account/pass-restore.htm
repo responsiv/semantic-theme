@@ -1,0 +1,18 @@
+<p>
+    <strong>Lost your password?</strong>
+    No problem! We can help if you can access your email...
+</p>
+
+<form
+    data-request="onRestorePassword"
+    data-request-loading="#resetLoading"
+    data-request-update="'account/pass-reset': '#partialUserResetForm'">
+    <div class="field">
+        <div class="ui left icon input">
+            <input name="email" type="email" class="form-control" id="userRestoreEmail" placeholder="Enter your email">
+            <i class="mail icon"></i>
+        </div>
+    </div>
+
+    <button type="submit" class="ui large fluid positive submit button">Restore password</button>
+</form>
