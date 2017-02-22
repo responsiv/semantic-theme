@@ -2,7 +2,7 @@
    Icon Variables
 --------------------*/
 
-@fontPath  : "../../vendor/semantic-ui/themes/basic/assets/fonts";
+@fontPath  : "../../themes/basic/assets/fonts";
 
 @src:
   url("@{fontPath}/@{fontName}.eot?#iefix") format('embedded-opentype'),
